@@ -1,12 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #f97316;
-  --color-primary-dark: #ea580c;
-  --color-primary-light: #fed7aa;
+  --color-primary: #0aa1e0;
+  --color-primary-dark: #088bc2;
+  --color-primary-light: #d9f1fb;
   --color-dark: #0f172a;
   --color-dark-800: #1e293b;
   --color-dark-700: #334155;
+
+  /* Brand palette from JM Logistics logo */
+  --color-orange-50: #eef9fd;
+  --color-orange-100: #d9f1fb;
+  --color-orange-200: #b3e3f7;
+  --color-orange-300: #7ecff0;
+  --color-orange-400: #47bbe8;
+  --color-orange-500: #0aa1e0;
+  --color-orange-600: #088bc2;
+  --color-orange-700: #0a6f99;
+
+  --color-green-50: #edf9f1;
+  --color-green-100: #d3f0dc;
+  --color-green-500: #1fae4d;
+  --color-green-600: #18893c;
 }
 
 html {
@@ -49,3 +64,118 @@ body {
 .animation-delay-300 { animation-delay: 0.3s; opacity: 0; }
 .animation-delay-400 { animation-delay: 0.4s; opacity: 0; }
 .animation-delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+/* Full-page view-in when navigating (see Layout.jsx) */
+@keyframes pageViewIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-view-in {
+  animation: pageViewIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-view-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Home hero — staggered text reveal (HomePage.jsx) */
+@keyframes heroTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-text-reveal {
+  opacity: 0;
+  animation: heroTextReveal 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Hero — bouncy entrance for selected lines (HomePage.jsx) */
+@keyframes heroTextBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.94);
+    filter: blur(6px);
+  }
+  52% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.03);
+    filter: blur(0);
+  }
+  72% {
+    transform: translateY(5px) scale(0.99);
+  }
+  86% {
+    transform: translateY(-3px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.hero-text-bounce {
+  opacity: 0;
+  animation: heroTextBounce 1s ease-out forwards;
+}
+
+/* Hero — gentle infinite bounce (starts after entrance; HomePage.jsx) */
+@keyframes heroBounceInfinite {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.hero-bounce-infinite {
+  display: inline-block;
+  animation: heroBounceInfinite 2.25s ease-in-out infinite;
+  animation-delay: 1.05s;
+}
+
+.hero-bounce-infinite--late {
+  animation-delay: 1.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-text-reveal {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .hero-text-bounce {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .hero-bounce-infinite,
+  .hero-bounce-infinite--late {
+    animation: none;
+  }
+}

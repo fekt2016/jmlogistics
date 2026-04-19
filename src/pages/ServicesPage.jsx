@@ -1,11 +1,10 @@
 import { createElement } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  ArrowRight, Building2, CheckCircle2, Clock, MapPin, Package,
-  ShieldCheck, Truck, Zap,
+  Package, Truck, Building2, CheckCircle2, ArrowRight,
+  Clock, MapPin, ShieldCheck, Zap,
 } from 'lucide-react'
 import AnimateInView from '@/components/AnimateInView'
-import { usePageMeta } from '@/hooks/usePageMeta'
 
 const services = [
   {
@@ -83,17 +82,18 @@ const services = [
 ]
 
 export default function ServicesPage() {
-  usePageMeta(
-    'Services — JM Logistics',
-    'Local delivery, intercity shipping, and business logistics solutions across Ghana.'
-  )
-
   return (
     <div>
       <section className="bg-slate-900 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateInView variant="fade-up" delay={0}>
-            <p className="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-3">What We Do</p>
+            <p className="font-semibold text-sm uppercase tracking-wider mb-3">
+              <span className="text-orange-400">What we</span>
+              <span className="text-slate-500 mx-2" aria-hidden="true">
+                ·
+              </span>
+              <span className="text-green-400">Do</span>
+            </p>
           </AnimateInView>
           <AnimateInView variant="fade-up" delay={100}>
             <h1 className="text-4xl sm:text-5xl font-bold mb-5">Our Services</h1>
@@ -114,6 +114,7 @@ export default function ServicesPage() {
               id={svc.id}
               className={`grid lg:grid-cols-2 gap-12 items-start ${idx % 2 === 1 ? 'lg:flex lg:flex-row-reverse' : ''}`}
             >
+              {/* Content */}
               <AnimateInView variant={idx % 2 === 0 ? 'fade-right' : 'fade-left'} threshold={0.1}>
                 <span className={`inline-block ${svc.badge} text-xs font-semibold px-3 py-1 rounded-full mb-4`}>
                   {svc.tagline}
@@ -142,6 +143,7 @@ export default function ServicesPage() {
                 </Link>
               </AnimateInView>
 
+              {/* Use cases */}
               <AnimateInView variant={idx % 2 === 0 ? 'fade-left' : 'fade-right'} delay={150} threshold={0.1}>
                 <div className={`${svc.bg} rounded-3xl p-8 lg:p-10`}>
                   <h3 className="font-bold text-slate-900 mb-6 text-lg">Common Use Cases</h3>

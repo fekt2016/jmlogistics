@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, MapPin, Phone, Truck } from 'lucide-react'
+import { Truck, Phone, Mail, MapPin } from 'lucide-react'
 
 const WHATSAPP = '233200000000'
 
@@ -39,13 +39,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
+          {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="bg-orange-500 p-1.5 rounded-lg">
+              <div className="bg-gradient-to-br from-orange-500 to-green-600 p-1.5 rounded-lg">
                 <Truck size={20} className="text-white" />
               </div>
               <span className="font-bold text-lg text-white">
-                JM <span className="text-orange-400">Logistics</span>
+                JM{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-green-400">
+                  Logistics
+                </span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-slate-400">
@@ -57,7 +61,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="bg-slate-800 hover:bg-orange-500 text-slate-400 hover:text-white p-2 rounded-lg transition-colors"
+                  className="bg-slate-800 hover:bg-green-600 text-slate-400 hover:text-white p-2 rounded-lg transition-colors"
                 >
                   {icon}
                 </a>
@@ -65,18 +69,19 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Quick links */}
           <div>
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { to: '/', label: 'Home' },
-                { to: '/services', label: 'Services' },
-                { to: '/about', label: 'About Us' },
-                { to: '/contact', label: 'Contact' },
-                { to: '/faq', label: 'FAQ' },
-              ].map(({ to, label }) => (
-                <li key={to}>
-                  <Link to={to} className="hover:text-orange-400 transition-colors">
+                { href: '/', label: 'Home' },
+                { href: '/services', label: 'Services' },
+                { href: '/about', label: 'About Us' },
+                { href: '/contact', label: 'Contact' },
+                { href: '/faq', label: 'FAQ' },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link to={href} className="hover:text-green-400 transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -84,6 +89,7 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Services */}
           <div>
             <h3 className="text-white font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2 text-sm">
@@ -95,7 +101,7 @@ export default function Footer() {
                 'Package Tracking',
               ].map((s) => (
                 <li key={s}>
-                  <Link to="/services" className="hover:text-orange-400 transition-colors">
+                  <Link to="/services" className="hover:text-green-400 transition-colors">
                     {s}
                   </Link>
                 </li>
@@ -103,22 +109,23 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
             <h3 className="text-white font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-orange-400 mt-0.5 shrink-0" />
+                <MapPin size={16} className="text-green-400 mt-0.5 shrink-0" />
                 <span>12 Logistics Way, Accra, Ghana</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-orange-400 shrink-0" />
-                <a href="tel:+233200000000" className="hover:text-orange-400 transition-colors">
+                <a href="tel:+233200000000" className="hover:text-orange-300 transition-colors">
                   +233 20 000 0000
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={16} className="text-orange-400 shrink-0" />
-                <a href="mailto:info@jmlogistics.com.gh" className="hover:text-orange-400 transition-colors">
+                <Mail size={16} className="text-green-400 shrink-0" />
+                <a href="mailto:info@jmlogistics.com.gh" className="hover:text-green-300 transition-colors">
                   info@jmlogistics.com.gh
                 </a>
               </li>
@@ -139,7 +146,13 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-slate-500">
           <p>© {new Date().getFullYear()} JM Logistics. All rights reserved.</p>
-          <p>Built with care for fast deliveries.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-right">
+            <p>Built with care for fast deliveries.</p>
+            <p>
+              Developer:{' '}
+              <span className="text-slate-400">eazworld</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

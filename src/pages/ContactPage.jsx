@@ -1,14 +1,9 @@
+
 import { useState } from 'react'
-import { CheckCircle2, Clock, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageCircle, Send, Clock, CheckCircle2 } from 'lucide-react'
 import AnimateInView from '@/components/AnimateInView'
-import { usePageMeta } from '@/hooks/usePageMeta'
 
 export default function ContactPage() {
-  usePageMeta(
-    'Contact Us — JM Logistics',
-    'Get in touch with JM Logistics for quotes, support, and delivery enquiries across Ghana.'
-  )
-
   const WHATSAPP = '233200000000'
   const WHATSAPP_MSG = encodeURIComponent('Hello! I would like to get a quote from JM Logistics.')
 
@@ -39,7 +34,13 @@ export default function ContactPage() {
       <section className="bg-slate-900 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateInView variant="fade-up" delay={0}>
-            <p className="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-3">Get In Touch</p>
+            <p className="font-semibold text-sm uppercase tracking-wider mb-3">
+              <span className="text-orange-400">Get in</span>
+              <span className="text-slate-500 mx-2" aria-hidden="true">
+                ·
+              </span>
+              <span className="text-green-400">Touch</span>
+            </p>
           </AnimateInView>
           <AnimateInView variant="fade-up" delay={100}>
             <h1 className="text-4xl sm:text-5xl font-bold mb-5">Contact Us</h1>
@@ -56,6 +57,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-10">
 
+            {/* Info cards */}
             <div className="space-y-5">
               <AnimateInView variant="fade-right" delay={0}>
                 <div className="bg-white rounded-2xl p-6 shadow-sm">
@@ -156,6 +158,7 @@ export default function ContactPage() {
               </AnimateInView>
             </div>
 
+            {/* Form */}
             <div className="lg:col-span-2">
               <AnimateInView variant="fade-left" delay={100}>
                 <div className="bg-white rounded-3xl p-8 shadow-sm">

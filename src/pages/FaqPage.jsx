@@ -1,8 +1,8 @@
+
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronDown, HelpCircle } from 'lucide-react'
+import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react'
 import AnimateInView from '@/components/AnimateInView'
-import { usePageMeta } from '@/hooks/usePageMeta'
 
 const categories = [
   {
@@ -118,11 +118,6 @@ function AccordionItem({ q, a, index }) {
 }
 
 export default function FAQPage() {
-  usePageMeta(
-    'FAQ — JM Logistics',
-    'Find answers about shipping, pricing, tracking, and business accounts at JM Logistics.'
-  )
-
   const [activeCategory, setActiveCategory] = useState(0)
 
   return (
@@ -130,8 +125,12 @@ export default function FAQPage() {
       <section className="bg-slate-900 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateInView variant="fade-up" delay={0}>
-            <div className="bg-orange-500/20 border border-orange-500/30 text-orange-300 text-sm px-4 py-1.5 rounded-full inline-block mb-5">
-              Got Questions?
+            <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 ring-1 ring-green-500/25 text-sm px-4 py-1.5 rounded-full mb-5">
+              <span className="text-orange-300">Got</span>
+              <span className="text-slate-500" aria-hidden="true">
+                ·
+              </span>
+              <span className="text-green-300">Questions?</span>
             </div>
           </AnimateInView>
           <AnimateInView variant="fade-up" delay={100}>
@@ -152,8 +151,8 @@ export default function FAQPage() {
             <div className="flex flex-wrap gap-2 mb-12 justify-center">
               {categories.map(({ label }, i) => (
                 <button
-                  key={label}
                   type="button"
+                  key={label}
                   onClick={() => setActiveCategory(i)}
                   className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                     activeCategory === i

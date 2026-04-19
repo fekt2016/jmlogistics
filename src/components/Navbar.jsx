@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect, startTransition } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, Truck, X } from 'lucide-react'
+import { Menu, X, Truck } from 'lucide-react'
 
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '/services', label: 'Services' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-  { to: '/faq', label: 'FAQ' },
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/shipments/create', label: 'Ship' },
+  { href: '/shipments/track', label: 'Track' },
+  { href: '/prohibited-items', label: 'Prohibited Items' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/faq', label: 'FAQ' },
 ]
 
 export default function Navbar() {
@@ -21,8 +24,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const isActive = (to) =>
-    to === '/' ? pathname === '/' : pathname.startsWith(to)
+  // Close mobile menu on route change
+  useEffect(() => {
+    startTransition(() => setOpen(false))
+  }, [pathname])
+
+  const isActive = (href) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
     <header
@@ -32,22 +40,27 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-orange-500 text-white p-1.5 rounded-lg group-hover:bg-orange-600 transition-colors">
+            <div className="bg-gradient-to-br from-orange-500 to-green-600 text-white p-1.5 rounded-lg group-hover:from-orange-600 group-hover:to-green-700 transition-colors">
               <Truck size={22} />
             </div>
             <span className="font-bold text-xl text-slate-900">
-              JM <span className="text-orange-500">Logistics</span>
+              JM{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-green-600">
+                Logistics
+              </span>
             </span>
           </Link>
 
+          {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-1">
-            {links.map(({ to, label }) => (
-              <li key={to}>
+            {links.map(({ href, label }) => (
+              <li key={href}>
                 <Link
-                  to={to}
+                  to={href}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isActive(to)
+                    isActive(href)
                       ? 'text-orange-500 bg-orange-50'
                       : 'text-slate-600 hover:text-orange-500 hover:bg-orange-50'
                   }`}
@@ -58,6 +71,7 @@ export default function Navbar() {
             ))}
           </ul>
 
+          {/* CTA */}
           <div className="hidden md:block">
             <Link
               to="/contact"
@@ -67,6 +81,7 @@ export default function Navbar() {
             </Link>
           </div>
 
+          {/* Mobile burger */}
           <button
             type="button"
             className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100"
@@ -77,16 +92,16 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* Mobile menu */}
         {open && (
           <div className="md:hidden pb-4 border-t border-slate-100 mt-1">
             <ul className="flex flex-col gap-1 pt-3">
-              {links.map(({ to, label }) => (
-                <li key={to}>
+              {links.map(({ href, label }) => (
+                <li key={href}>
                   <Link
-                    to={to}
-                    onClick={() => setOpen(false)}
+                    to={href}
                     className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                      isActive(to)
+                      isActive(href)
                         ? 'text-orange-500 bg-orange-50'
                         : 'text-slate-600 hover:text-orange-500 hover:bg-orange-50'
                     }`}
@@ -98,7 +113,6 @@ export default function Navbar() {
               <li className="pt-2">
                 <Link
                   to="/contact"
-                  onClick={() => setOpen(false)}
                   className="block text-center bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors"
                 >
                   Get a Quote

@@ -1,10 +1,9 @@
 import { createElement } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  ArrowRight, Award, Heart, ShieldCheck, TrendingUp, Users, Zap,
+  ShieldCheck, Zap, Heart, Users, TrendingUp, Award, ArrowRight,
 } from 'lucide-react'
 import AnimateInView from '@/components/AnimateInView'
-import { usePageMeta } from '@/hooks/usePageMeta'
 
 const values = [
   {
@@ -35,39 +34,39 @@ const team = [
 ]
 
 const milestones = [
-  { year: '2018', event: 'JM Logistics founded in Accra with 2 motorcycles and a dream.' },
-  { year: '2019', event: 'Expanded to 3 cities, onboarded our first 20 business clients.' },
-  { year: '2021', event: 'Reached 10,000 successful deliveries. Launched intercity routes.' },
-  { year: '2023', event: 'Nationwide coverage across Ghana, 200+ business clients, 50K+ deliveries.' },
-  { year: '2024', event: 'Launched real-time tracking and dedicated business portal.' },
+  { year: '2025', event: 'JM Logistics opened last year from a small base in Mamobi — first helping customers bring goods between the United States and Ghana with dependable sourcing and delivery.' },
+  { year: 'Today', event: 'Our core work is bringing goods from Ghana to the United States, with the same hands-on, personal service we started with.' },
 ]
 
 export default function AboutPage() {
-  usePageMeta(
-    'About Us — JM Logistics',
-    'Learn about JM Logistics — our story, mission, values, and the team behind every delivery.'
-  )
-
   return (
     <div>
+      {/* Hero */}
       <section className="bg-slate-900 text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <AnimateInView variant="fade-up" delay={0}>
-              <p className="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-3">Our Story</p>
+              <p className="font-semibold text-sm uppercase tracking-wider mb-3">
+                <span className="text-orange-400">Our</span>
+                <span className="text-slate-500 mx-2" aria-hidden="true">
+                  ·
+                </span>
+                <span className="text-green-400">Story</span>
+              </p>
             </AnimateInView>
             <AnimateInView variant="fade-up" delay={100}>
               <h1 className="text-4xl sm:text-5xl font-bold mb-6">Born to Move Things Forward</h1>
             </AnimateInView>
             <AnimateInView variant="fade-up" delay={200}>
               <p className="text-slate-300 text-lg leading-relaxed">
-                JM Logistics was founded with one simple mission — make logistics stress-free for everyone. What started as a two-man operation in Accra has grown into a nationwide network trusted by thousands across Ghana.
+                JM Logistic began last year from a small base in Mamobi — first bringing goods from the USA to Ghana for customers who needed reliable sourcing and delivery. Today we focus on bringing goods from Ghana to the United States, with trusted service at every step.
               </p>
             </AnimateInView>
           </div>
         </div>
       </section>
 
+      {/* Story */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -78,8 +77,8 @@ export default function AboutPage() {
                     <div className="bg-orange-500 text-white rounded-full p-6 inline-block mb-4">
                       <TrendingUp size={40} />
                     </div>
-                    <p className="font-bold text-orange-700 text-lg">Growing Since 2018</p>
-                    <p className="text-orange-600 text-sm mt-1">From 2 bikes to nationwide reach</p>
+                    <p className="font-bold text-orange-700 text-lg">Since 2025 · Mamobi</p>
+                    <p className="text-orange-600 text-sm mt-1">USA ↔ Ghana logistics, built on trust</p>
                   </div>
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-slate-900 text-white rounded-2xl p-5 shadow-xl">
@@ -93,13 +92,13 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-slate-900 mb-5">The JM Logistics Story</h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  It started in 2018 when James Mensah, frustrated by unreliable delivery services in Accra, decided to build something better. With two motorcycles, a phone, and relentless determination, JM Logistics was born.
+                  The JM Logistics story started last year from a small shop in Mamobi. We began by bringing goods from the United States to Ghana for customers who wanted dependable sourcing and delivery they could count on.
                 </p>
                 <p>
-                  Word spread fast. Within a year, businesses were calling us instead of the old players. We kept our promise simple: pick up on time, deliver on time, and treat every package like it's our own.
+                  We have quickly sharpened our focus: today our core lane is bringing goods from Ghana to the USA — connecting families, businesses, and communities on both sides of the Atlantic with clear communication and careful handling.
                 </p>
                 <p>
-                  Today, JM Logistics operates across Ghana with a professional fleet, dedicated support teams, and technology to keep you informed every step of the way.
+                  Today, JM Logistics combines that same personal service with professional operations across Ghana and a strong USA lane, so you always know where your shipment stands.
                 </p>
               </div>
             </AnimateInView>
@@ -107,6 +106,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Mission & Vision */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -155,6 +155,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Timeline */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateInView variant="fade-up" className="text-center mb-14">
@@ -184,6 +185,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateInView variant="fade-up" className="text-center mb-14">

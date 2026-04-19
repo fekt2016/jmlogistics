@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react'
 
 const variants = {
@@ -21,11 +22,14 @@ export default function AnimateInView({
   once = true,
 }) {
   const ref = useRef(null)
-  const [inView, setInView] = useState(false)
+  const [inView, setInView] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  })
 
   useEffect(() => {
     const el = ref.current
-    if (!el) return
+    if (!el || inView) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,7 +45,7 @@ export default function AnimateInView({
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [once, threshold])
+  }, [once, threshold, inView])
 
   return (
     <div

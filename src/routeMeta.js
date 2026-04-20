@@ -1,6 +1,6 @@
 /** Default document titles by pathname (longest prefix match for nested routes). */
 export const routeTitles = {
-  '/': 'JM Logistics — Reliable Delivery Solutions',
+  '/': 'JM Logistics — Ghana to USA & Ghana Delivery',
   '/about': 'About Us — JM Logistics',
   '/services': 'Services — JM Logistics',
   '/contact': 'Contact — JM Logistics',

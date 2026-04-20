@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Truck, Phone, Mail, MapPin } from 'lucide-react'
+import { FOOTER_TAGLINE } from '@/constants/shippingCoverage'
 
 const WHATSAPP = '233200000000'
 
@@ -53,7 +54,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-slate-400">
-              Reliable, fast, and professional delivery solutions for individuals and businesses across Ghana.
+              {FOOTER_TAGLINE}
             </p>
             <div className="flex gap-3 mt-5">
               {socialLinks.map(({ label, href, icon }) => (

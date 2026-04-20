@@ -35,7 +35,7 @@ const team = [
 
 const milestones = [
   { year: '2025', event: 'JM Logistics opened last year from a small base in Mamobi — first helping customers bring goods between the United States and Ghana with dependable sourcing and delivery.' },
-  { year: 'Today', event: 'Our core work is bringing goods from Ghana to the United States, with the same hands-on, personal service we started with.' },
+  { year: 'Today', event: 'Our core work is bringing goods from Ghana to the United States — with included US delivery in all New York cities and Newark, NJ, and quoted delivery to other states — plus the same hands-on, personal service we started with.' },
 ]
 
 export default function AboutPage() {
@@ -78,7 +78,7 @@ export default function AboutPage() {
                       <TrendingUp size={40} />
                     </div>
                     <p className="font-bold text-orange-700 text-lg">Since 2025 · Mamobi</p>
-                    <p className="text-orange-600 text-sm mt-1">USA ↔ Ghana logistics, built on trust</p>
+                    <p className="text-orange-600 text-sm mt-1">Ghana → USA freight, built on trust</p>
                   </div>
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-slate-900 text-white rounded-2xl p-5 shadow-xl">
@@ -98,7 +98,7 @@ export default function AboutPage() {
                   We have quickly sharpened our focus: today our core lane is bringing goods from Ghana to the USA — connecting families, businesses, and communities on both sides of the Atlantic with clear communication and careful handling.
                 </p>
                 <p>
-                  Today, JM Logistics combines that same personal service with professional operations across Ghana and a strong USA lane, so you always know where your shipment stands.
+                  Today, JM Logistics combines that same personal service with professional operations across Ghana and a strong USA lane. After arrival in the US, we deliver door-to-door across New York (all cities) and in Newark, NJ; other US destinations are quoted with an extra delivery fee so you always know where your shipment stands.
                 </p>
               </div>
             </AnimateInView>

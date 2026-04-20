@@ -9,11 +9,19 @@ const categories = [
     label: 'Shipping & Delivery',
     faqs: [
       {
+        q: 'Do you ship from Ghana to the United States?',
+        a: 'Yes. We move shipments from Ghana to the USA. When your package arrives in the US, door-to-door delivery is included for all cities in New York and for Newark, New Jersey only. Delivery or forwarding to other US states is available for an additional fee — ask us for a quote.',
+      },
+      {
+        q: 'Where in the US is delivery included?',
+        a: 'Included last-mile delivery covers all cities in New York State and Newark, NJ only. Any other US destination can be arranged with extra delivery charges quoted before you ship.',
+      },
+      {
         q: 'How long does local delivery take?',
         a: 'Our local delivery service offers same-day delivery for orders placed before 12:00 PM. Orders placed after that time are typically delivered the next morning. We also offer express slots for urgent deliveries.',
       },
       {
-        q: 'What cities do you deliver to?',
+        q: 'What cities do you deliver to in Ghana?',
         a: "We currently offer local delivery within Accra, Kumasi, Tamale, Takoradi, and Cape Coast. Our intercity service connects all major cities across Ghana. Contact us if your location isn't listed — we're always expanding.",
       },
       {
@@ -31,7 +39,7 @@ const categories = [
     faqs: [
       {
         q: 'How is the delivery fee calculated?',
-        a: 'Our pricing is based on package weight, dimensions, distance, and delivery speed. For local deliveries, we offer flat rates starting from GH₵10. Contact us for a custom quote on large or intercity shipments.',
+        a: 'Our pricing is based on package weight, dimensions, distance, and delivery speed. For local deliveries in Ghana, we offer flat rates starting from GH₵10. Published Ghana-to-USA rates in GHS are on our home page; destinations in US states outside our included NY / Newark areas attract additional delivery charges — contact us for a quote.',
       },
       {
         q: 'Are there any hidden charges?',
@@ -138,7 +146,8 @@ export default function FAQPage() {
           </AnimateInView>
           <AnimateInView variant="fade-up" delay={200}>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Find quick answers to the most common questions about our logistics services.
+              Ghana to USA shipping, US delivery zones, Ghana local and
+              intercity delivery, pricing, and more.
             </p>
           </AnimateInView>
         </div>

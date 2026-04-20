@@ -26,7 +26,7 @@ export default function ProhibitedItemsPage() {
           </h1>
           <p className="text-slate-600 mt-3 max-w-2xl mx-auto">
             For safety and compliance reasons, J.M Logistics does not accept
-            the following items for shipment from Ghana.
+            the following items for shipment from Ghana to the United States.
           </p>
         </AnimateInView>
 

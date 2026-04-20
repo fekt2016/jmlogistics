@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SectionView from '@/components/SectionView'
 
 export default function TrackShipmentPage() {
@@ -9,7 +10,13 @@ export default function TrackShipmentPage() {
             Shipment Tracking Coming Soon
           </h1>
           <p className="text-slate-600 mt-3 text-sm sm:text-base">
-            We are preparing this page. Please check back soon.
+            We are preparing this page. For status on Ghana → USA shipments,
+            contact us on{' '}
+            <Link to="/contact" className="text-orange-600 font-semibold hover:underline">
+              Contact
+            </Link>{' '}
+            or WhatsApp — US delivery is included in NY (all cities) and Newark,
+            NJ; other states may incur extra fees.
           </p>
         </div>
       </div>

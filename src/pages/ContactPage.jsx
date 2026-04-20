@@ -1,6 +1,9 @@
 
 import { useState } from 'react'
-import { Phone, Mail, MapPin, MessageCircle, Send, Clock, CheckCircle2 } from 'lucide-react'
+import {
+  Phone, Mail, MapPin, MessageCircle, Send, Clock, CheckCircle2, Globe,
+} from 'lucide-react'
+import { US_DELIVERY_COVERAGE_BULLETS } from '@/constants/shippingCoverage'
 import AnimateInView from '@/components/AnimateInView'
 
 export default function ContactPage() {
@@ -47,7 +50,8 @@ export default function ContactPage() {
           </AnimateInView>
           <AnimateInView variant="fade-up" delay={200}>
             <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              Have a question or ready to ship? Reach out and we'll get back to you within the hour.
+              Have a question or ready to ship from Ghana to the USA? Reach out
+              and we will get back to you within the hour.
             </p>
           </AnimateInView>
         </div>
@@ -142,7 +146,35 @@ export default function ContactPage() {
                 </div>
               </AnimateInView>
 
-              <AnimateInView variant="fade-right" delay={320}>
+              <AnimateInView variant="fade-right" delay={280}>
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="bg-indigo-50 p-3 rounded-xl shrink-0">
+                      <Globe size={22} className="text-indigo-500" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-slate-500 mb-0.5">Ghana → USA</p>
+                      <p className="font-bold text-slate-900 text-sm leading-snug">
+                        Shipping coverage
+                      </p>
+                    </div>
+                  </div>
+                  <ul className="space-y-2.5 text-xs text-slate-600">
+                    {US_DELIVERY_COVERAGE_BULLETS.map((line) => (
+                      <li key={line} className="flex gap-2">
+                        <CheckCircle2
+                          size={14}
+                          className="text-green-600 shrink-0 mt-0.5"
+                          aria-hidden
+                        />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimateInView>
+
+              <AnimateInView variant="fade-right" delay={360}>
                 <a
                   href={`https://wa.me/${WHATSAPP}?text=${WHATSAPP_MSG}`}
                   target="_blank"

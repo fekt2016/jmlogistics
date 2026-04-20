@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SectionView from '@/components/SectionView'
 
 export default function CreateShipmentPage() {
@@ -9,7 +10,13 @@ export default function CreateShipmentPage() {
             Shipment Booking Coming Soon
           </h1>
           <p className="text-slate-600 mt-3 text-sm sm:text-base">
-            We are preparing this page. Please check back soon.
+            We are preparing this page. For Ghana → USA moves, included US
+            delivery applies in all New York cities and Newark, NJ only; other
+            US states are quoted with extra charges — book via{' '}
+            <Link to="/contact" className="text-orange-600 font-semibold hover:underline">
+              Contact
+            </Link>{' '}
+            or WhatsApp until online booking is live.
           </p>
         </div>
       </div>

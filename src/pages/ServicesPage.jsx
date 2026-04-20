@@ -2,11 +2,35 @@ import { createElement } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Package, Truck, Building2, CheckCircle2, ArrowRight,
-  Clock, MapPin, ShieldCheck, Zap,
+  Clock, MapPin, ShieldCheck, Zap, Globe,
 } from 'lucide-react'
 import AnimateInView from '@/components/AnimateInView'
 
 const services = [
+  {
+    id: 'ghana-usa',
+    icon: Globe,
+    color: 'text-indigo-500',
+    bg: 'bg-indigo-50',
+    badge: 'bg-indigo-100 text-indigo-800',
+    title: 'Ghana to USA Shipping',
+    tagline: 'International freight & US delivery',
+    description:
+      'We ship from Ghana to the United States. When your package arrives, door-to-door delivery is included throughout New York (all cities) and in Newark, New Jersey only. We can arrange delivery or forwarding to other US states for an additional fee — contact us for a quote before you ship.',
+    benefits: [
+      'Single lane: Ghana → USA',
+      'Included US delivery: NY (all cities) & Newark, NJ',
+      'Other US states: quoted add-on delivery charges',
+      'Published GHS rates for common categories (see Home)',
+      'Updates via WhatsApp through transit',
+    ],
+    useCases: [
+      { icon: Package, label: 'Family parcels and care packages' },
+      { icon: Building2, label: 'Small business exports to US buyers' },
+      { icon: MapPin, label: 'Documents and time-sensitive items' },
+      { icon: ShieldCheck, label: 'Declared-value and sensitive goods' },
+    ],
+  },
   {
     id: 'local',
     icon: Package,
@@ -100,7 +124,9 @@ export default function ServicesPage() {
           </AnimateInView>
           <AnimateInView variant="fade-up" delay={200}>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              From urgent same-day deliveries to complex business logistics — we have the expertise and infrastructure to handle it all.
+              Ghana to USA shipping with clear US delivery zones, plus local,
+              intercity, and business logistics across Ghana — we handle the
+              full journey.
             </p>
           </AnimateInView>
         </div>

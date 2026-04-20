@@ -1,30 +1,38 @@
 import { createElement } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  ArrowRight, Package, Truck, Building2,
+  ArrowRight, Truck, Building2, Globe,
   ShieldCheck, Clock, HeadphonesIcon, Star, MapPin, CheckCircle2, AlertTriangle,
 } from 'lucide-react'
 import AnimateInView from '@/components/AnimateInView'
 import { homeProhibitedPreviewImages } from '@/constants/prohibitedImages'
+import {
+  HOME_HERO_LEAD,
+  US_DELIVERY_COVERAGE_BULLETS,
+  US_DELIVERY_SUMMARY,
+} from '@/constants/shippingCoverage'
 
 const services = [
   {
-    icon: Package,
-    title: 'Local Delivery',
-    desc: 'Same-day and next-day delivery within your city. Fast, secure, and affordable.',
-    color: 'bg-orange-50 text-orange-500',
+    icon: Globe,
+    title: 'Ghana → USA shipping',
+    desc: 'International shipment from Ghana to the United States, with included US delivery in all New York cities and Newark, NJ. Other US states — we quote add-on delivery before you ship.',
+    color: 'bg-indigo-50 text-indigo-500',
+    learnMoreTo: '/services#ghana-usa',
   },
   {
     icon: Truck,
-    title: 'Intercity Delivery',
-    desc: 'Reliable transport between cities across Ghana with real-time tracking.',
-    color: 'bg-blue-50 text-blue-500',
+    title: 'Ghana local & intercity',
+    desc: 'Same-day and next-day delivery in your city, plus dependable routes between major cities across Ghana — for individuals, families, and retailers.',
+    color: 'bg-orange-50 text-orange-500',
+    learnMoreTo: '/services#local',
   },
   {
     icon: Building2,
-    title: 'Business Logistics',
-    desc: 'End-to-end supply chain solutions tailored for businesses of all sizes.',
+    title: 'Business logistics',
+    desc: 'Volume to the USA, recurring Ghana moves, and tailored support so your team always knows cost, cut-off times, and where freight sits.',
     color: 'bg-green-50 text-green-500',
+    learnMoreTo: '/services#business',
   },
 ]
 
@@ -47,10 +55,7 @@ const SHIP_MESSAGE = encodeURIComponent(
   'Hello JM Logistics, I want to ship an item from Ghana.',
 )
 
-const coverage = [
-  'Ghana to New York (all addresses)',
-  'Ghana to New Jersey (Newark addresses only)',
-]
+const coverage = US_DELIVERY_COVERAGE_BULLETS
 
 const priceCards = [
   { label: 'Standard package', amount: 'GHS 159', note: 'Per 1kg (all packages)' },
@@ -112,7 +117,7 @@ export default function Home() {
               className="hero-text-reveal text-lg text-slate-300 mb-8 max-w-xl"
               style={{ animationDelay: '0.48s' }}
             >
-              From same-day local delivery to nationwide intercity shipping across Ghana — JM Logistics moves your goods safely, on time, every time.
+              {HOME_HERO_LEAD}
             </p>
 
             <div
@@ -167,8 +172,10 @@ export default function Home() {
               <span className="text-green-600">Offer</span>
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Core Services</h2>
-            <p className="text-slate-500 mt-3 max-w-xl mx-auto">
-              Whether you're an individual or a business, we have the right logistics solution for you.
+            <p className="text-slate-500 mt-3 max-w-2xl mx-auto leading-relaxed">
+              Whether you&apos;re an individual or a business, we have the right
+              logistics solution for you — from Ghana to the USA (with clear US
+              delivery zones) to local and intercity moves across Ghana.
             </p>
           </AnimateInView>
 
@@ -182,7 +189,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{svc.title}</h3>
                   <p className="text-slate-500 leading-relaxed">{svc.desc}</p>
                   <Link
-                    to="/services"
+                    to={svc.learnMoreTo ?? '/services'}
                     className="inline-flex items-center gap-1 mt-5 text-orange-500 font-medium text-sm hover:gap-2 transition-all"
                   >
                     Learn more <ArrowRight size={16} />
@@ -209,7 +216,7 @@ export default function Home() {
               Ghana to USA Shipping Details
             </h2>
             <p className="text-slate-500 mt-3 max-w-2xl mx-auto">
-              Fast shipping from Ghana with clear pricing and clear item rules.
+              {US_DELIVERY_SUMMARY}
             </p>
           </AnimateInView>
 
